@@ -38,7 +38,7 @@ const Schema = {
 
 class ExtendedModel extends Model {
   static associate(models) {
-    // Modifica aquí
+    this.hasMany(models.generosContenidos, { foreignKey: 'genero', as: 'contenidos' });
   }
   static config(sequelize) {
     return {
