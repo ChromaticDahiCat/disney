@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 // Controladores para la autenticación de usuarios
-// const { loginController } = require('../../../controllers/authControllers');
+const { loginController } = require('../../../controllers');
 
 // Ruta de inicio de sesión
 router.post('/login', loginController);
