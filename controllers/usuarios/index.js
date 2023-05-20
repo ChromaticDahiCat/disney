@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt');
+const CryptoJS = require("crypto-js");
 
 const { UsuariosService } = require('../../services/')
 
@@ -18,8 +19,10 @@ class UsuariosController {
         throw new Error('No se pudo encriptar la contraseña')
       }
 
+      const token = CryptoJS.SHA256(correo).toString();
+
       try {
-        user = await UsuariosService.registerUser(nombre, apellido, correo, hash)
+        user = await UsuariosService.registerUser(nombre, apellido, correo, hash, token)
       } catch (err) {
         throw new Error(err)
       }

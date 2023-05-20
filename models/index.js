@@ -1,6 +1,7 @@
 // Importar los módulos necesarios
 const fs = require('fs');
 const path = require('path');
+const { sequelize } = require('../config/database.js'); // Importa tu objeto sequelize desde donde corresponda
 
 // Ruta del directorio actual de los modelos
 const modelsDir = path.join(__dirname);
@@ -19,7 +20,11 @@ fs.readdirSync(modelsDir).forEach(file => {
     const modelName = path.basename(file, '.model.js');
 
     // Importar el modelo y almacenarlo en el objeto "models" usando su nombre
-    models[modelName] = require(filePath);
+    const model = require(filePath);
+    models[modelName] = model;
+
+    // Añadir el modelo al objeto sequelize
+    sequelize.models[modelName] = model;
   }
 });
 
