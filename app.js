@@ -2,7 +2,8 @@ const express = require('express');
 const app = express();
 const routes = require('./routes');
 
-// Configuración de middlewares, variables de entorno, etc.
+// Middleware para parsear el cuerpo de la solicitud como JSON
+app.use(express.json());
 
 // Agregar rutas al enrutador principal
 app.use('/api/v1', routes);
