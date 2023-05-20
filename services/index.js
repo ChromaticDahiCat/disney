@@ -9,7 +9,7 @@ fs.readdirSync(__dirname)
   })
   .forEach((file) => {
     const service = require(path.join(__dirname, file));
-    const serviceName = `${file[0].toUpperCase() + file.substring(1)}service`;
+    const serviceName = `${file[0].toUpperCase() + file.substring(1)}Service`;
     services[serviceName] = service;
   });
 

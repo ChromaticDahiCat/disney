@@ -6,7 +6,7 @@ class UsuariosService {
   }
 
   static async registerUser(nombre, apellido, correo, hash) {
-    //
+    return hash;
   }
 }
 
